@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const itemSchema = require('./item')
+const orderSchema = require('./order')
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  cart: [itemSchema],
+  orders: [orderSchema],
   token: String
 }, {
   timestamps: true,

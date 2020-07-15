@@ -1,21 +1,21 @@
 const mongoose = require('mongoose')
 
 const orderSchema = new mongoose.Schema({
-  itemList: {
-    type: Array,
+  products: {
+    type: [mongoose.Schema.Types.ObjectId],
+    ref: 'Product',
     required: true
   },
-  totalCost: {
-    type: Number,
+  date: {
+    type: String,
     required: true
   },
-  owner: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+  active: {
+    type: Boolean,
     required: true
   }
 }, {
   timestamps: true
 })
 
-module.exports = mongoose.model('Order', orderSchema)
+module.exports = orderSchema
