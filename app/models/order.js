@@ -1,14 +1,13 @@
 const mongoose = require('mongoose')
 
 const orderSchema = new mongoose.Schema({
-  products: {
-    type: [mongoose.Schema.Types.ObjectId],
-    ref: 'Product',
-    required: true
-  },
+  products: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Product'
+  }],
   date: {
     type: String,
-    required: true
+    required: false
   },
   active: {
     type: Boolean,
