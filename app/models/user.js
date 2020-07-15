@@ -1,6 +1,11 @@
 const mongoose = require('mongoose')
+const itemSchema = require('./item')
 
 const userSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: false
+  },
   email: {
     type: String,
     required: true,
@@ -10,6 +15,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  cart: [itemSchema],
   token: String
 }, {
   timestamps: true,

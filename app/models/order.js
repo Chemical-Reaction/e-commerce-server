@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
 
-const exampleSchema = new mongoose.Schema({
-  title: {
-    type: String,
+const orderSchema = new mongoose.Schema({
+  itemList: {
+    type: Array,
     required: true
   },
-  text: {
-    type: String,
+  totalCost: {
+    type: Number,
     required: true
   },
   owner: {
@@ -18,4 +18,4 @@ const exampleSchema = new mongoose.Schema({
   timestamps: true
 })
 
-module.exports = mongoose.model('Example', exampleSchema)
+module.exports = mongoose.model('Order', orderSchema)
