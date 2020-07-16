@@ -7,7 +7,7 @@ const orderSchema = new mongoose.Schema({
   }],
   date: {
     type: String,
-    required: false
+    required: true
   },
   active: {
     type: Boolean,

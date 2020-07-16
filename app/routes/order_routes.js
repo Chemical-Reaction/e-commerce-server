@@ -28,6 +28,7 @@ const router = express.Router()
 // GET /orders
 router.get('/orders', requireToken, (req, res, next) => {
   User.findById(req.user._id)
+    .populate('orders.products')
     .then(user => {
       // `user` will be the user that made the request
       // we want to convert each order to a POJO, so we use `.map` to
@@ -46,7 +47,7 @@ router.get('/orders', requireToken, (req, res, next) => {
 router.post('/orders', requireToken, (req, res, next) => {
   User.findById(req.user._id)
     .then(user => {
-      user.orders.push({date: 'test', active: true})
+      user.orders.push({date: new Date(), active: true})
       console.log('user before we save it', user)
       return user.save()
     })
