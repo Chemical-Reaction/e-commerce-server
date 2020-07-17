@@ -70,6 +70,10 @@ router.patch('/orders/:id', requireToken, removeBlanks, (req, res, next) => {
       order.set(req.body.order)
       return user.save()
     })
+    // if that succeeded, populate the orders' products on the returned user
+    .then(user => {
+      return user.populate('orders.products').execPopulate()
+    })
     // if that succeeded, return 201 and user's orders
     .then(user => res.status(201).json({orders: user.orders}))
     // if an error occurs, pass it to the handler
