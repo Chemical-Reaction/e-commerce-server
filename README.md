@@ -159,7 +159,7 @@ If the request is unsuccessful, the response will have an HTTP Status of 500 Int
 
 ## Orders
 ### index
-The `index` action is a _GET_ that retrieves all the orders associated with a user. The response body will contain JSON containing an array of orders, e.g:
+The `index` action is a _GET_ that retrieves all the orders associated with a user. The response status will be 200 OK and the response body will contain JSON containing an array of orders, e.g:
 ```
 {
   "orders": [
