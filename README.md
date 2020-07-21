@@ -1,5 +1,5 @@
 
-# Petsy E-Commerce Store Client Application
+# Petsy E-Commerce Store Server
 
   Our e-commerce store Petsy is a client application where users can browse pet products, add items to their cart, and submit an order by using the Stripe payment system at checkout.
 
