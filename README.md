@@ -133,26 +133,26 @@ The `sign-out` and `change-password` requests must include a valid HTTP header
 The `index` action is a _GET_ that retrieves all of the products in that are currently stored on the database. The response status will be 200 OK, and the response body will contain JSON containing an array of products, e.g.:
 ```
 {
-	“products”: [
-			{
-			“_id”: “an example product id”,
-			“name”: “toothbrush”,
-			“description”: “for your daily dental hygiene”,
-			“price”: 5,
-			“createdAt”: “an example date”,
-			“updatedAt”: “an example date”,
-			“__v”: 0
-		},
-		{
-		“_id”: “another example product id”,
-		“name”: “tent”,
-		“description”: “great for camping”,
-		“price”: 75,
-		“createdAt”: “an example date”,
-		“updatedAt”: “an example date”,
-		“__v”: 0
-		}
-	]
+    "products": [
+        {
+            "_id": "an example product id",
+            "name": "toothbrush",
+            "description": "for your daily dental hygiene",
+            "price": 5,
+            "createdAt": "an example date",
+            "updatedAt": "an example date",
+            "__v": 0
+        },
+        {
+            "_id": "another example product id",
+            "name": "tent",
+            "description": "great for camping",
+            "price": 75,
+            "createdAt": "an example date",
+            "updatedAt": "an example date",
+            "__v": 0
+        }
+    ]
 }
 ```
 If the request is unsuccessful, the response will have an HTTP Status of 500 Internal Server Error, and the response body will be JSON describing the errors.
@@ -160,38 +160,48 @@ If the request is unsuccessful, the response will have an HTTP Status of 500 Int
 ## Orders
 ### index
 The `index` action is a _GET_ that retrieves all the orders associated with a user. The response body will contain JSON containing an array of orders, e.g:
-```{
-"orders": [
-	{
-	"products": [
-		{"_id":"an example id",
-		"name":"Product",
-		"description":"Description",
-		"price":123,
-		"image":"https://images.unsplash.com/photo-1508873696983-2dfd5898f08b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-		"createdAt":"2020-07-19T19:50:49.428Z",
-		"updatedAt":"2020-07-19T19:50:49.428Z","__v":0}],
-		"_id":"an example id",
-		"date":"Mon Jul 20 2020 20:07:58 GMT-0400 (Eastern Daylight Time)",
-		"active":false,
-		"createdAt":"2020-07-21T00:07:58.479Z",
-		"updatedAt":"2020-07-21T00:08:17.881Z"},
-	{
-	"products": [
-		{"_id":"an example id",
-		"name":"My product 1",
-		"description":"Description",
-		"price":123,
-		"image":"exampleimage",
-		"createdAt":"2020-07-19T19:50:49.428Z",
-		"updatedAt":"2020-07-19T19:50:49.428Z","__v":0}],
-		"_id":"an example id",
-		"date":"Mon Jul 20 2020 20:08:17 GMT-0400 (Eastern Daylight Time)",
-		"active":true,
-		"createdAt":"2020-07-21T00:08:17.958Z",
-		"updatedAt":"2020-07-21T00:08:23.090Z"
-		}
-	]
+```
+{
+  "orders": [
+    {
+      "products": [
+        {
+          "_id": "an example id",
+          "name": "Product",
+          "description": "Description",
+          "price": 123,
+          "image": "https://images.unsplash.com/photo-1508873696983-2dfd5898f08b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+          "createdAt": "2020-07-19T19:50:49.428Z",
+          "updatedAt": "2020-07-19T19:50:49.428Z",
+          "__v": 0
+        }
+      ],
+      "_id": "an example id",
+      "date": "Mon Jul 20 2020 20:07:58 GMT-0400 (Eastern Daylight Time)",
+      "active": false,
+      "createdAt": "2020-07-21T00:07:58.479Z",
+      "updatedAt": "2020-07-21T00:08:17.881Z"
+    },
+    {
+      "products": [
+        {
+          "_id": "an example id",
+          "name": "My product 1",
+          "description": "Description",
+          "price": 123,
+          "image": "exampleimage",
+          "createdAt": "2020-07-19T19:50:49.428Z",
+          "updatedAt": "2020-07-19T19:50:49.428Z",
+          "__v": 0
+        }
+      ],
+      "_id": "an example id",
+      "date": "Mon Jul 20 2020 20:08:17 GMT-0400 (Eastern Daylight Time)",
+      "active": true,
+      "createdAt": "2020-07-21T00:08:17.958Z",
+      "updatedAt": "2020-07-21T00:08:23.090Z"
+    }
+  ]
 }
 ```
 If the request is unsuccessful, the response will have an HTTP Status of 400 Bad Request, and the response body will be JSON describing the errors.
@@ -209,28 +219,38 @@ The `create` action expects a POST with a token of the user. If the request is s
 		"active":true,
 		"createdAt":"2020-07-21T00:19:47.039Z",
 		"updatedAt":"2020-07-21T00:19:47.039Z"
-			}
-		]
-	}
-```
-### update
-
-This `update` expects a PATCH request with changes to an order from `active:true` to `active:false`. This is the data that you get back in form of JSON:
-```
-{
-	“orders”: [
-		{
-			“products”: [“an example product id”, “another example product id”],
-					“_id”: “an example order id”,
-					“date”: “Mon Jul 20 2020 20:30:32 GMT-0400 (GMT-04:00)“,
-					“active”: false,
-					“createdAt”: “2020-07-21T00:30:32.527Z”,
-					“updatedAt”: “2020-07-21T00:31:11.421Z”
 		}
 	]
 }
 ```
-If the request is successful, the response will have an HTTP Status of 204, No Content , and the body will be empty.
+### update
+
+This `update` expects a PATCH request with changes to an existing order, with a body formatted as such:
+```
+{
+  "order": {
+    "active": "false"
+  }
+}
+```
+If the request is successful, the response will have an HTTP Status of 201 Created, and the body will contain JSON of the updated order.
+```
+{
+  "orders": [
+    {
+      "products": [
+        "an example product id",
+        "another example product id"
+      ],
+      "_id": "an example order id",
+      "date": "Mon Jul 20 2020 20:30:32 GMT-0400 (GMT-04:00)",
+      "active": false,
+      "createdAt": "2020-07-21T00:30:32.527Z",
+      "updatedAt": "2020-07-21T00:31:11.421Z"
+    }
+  ]
+}
+```
 
 If the request is unseccussful, the response will have an HTTP Status of 400 Bad Request, and the body will be JSON describing the errors.
 
