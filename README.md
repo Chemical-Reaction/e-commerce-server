@@ -1,7 +1,7 @@
 
-# Petsy E-Commerce Store Client Application
+# Petsy E-Commerce Store Server
 
-  Our e-commerce store Petsy is a client application where users can browse pet products, add items to their cart, and submit an order by using the Stripe payment system at checkout.
+  The Petsy E-Commerce Store Server is an API created in Node and Express that utilizes MongoDB to store and retrieve product, user, and order data associated with the Petsy Client Application. It also allows users to register for accounts on the application.
 
 # Planning
 First, we worked on the user stories and what we wanted our users to experience while using our application. Then, we worked on our wireframes for our e-commerce store to get an idea of what we wanted our application to look like. Next, we created our Entity Relationship Diagram (ERD) in which mapped out our models, which includes user, purchases, and products. We used pair programming and mob programming during creating this application and were able to problem solve successfully due to collaboration on different elements of our project.
